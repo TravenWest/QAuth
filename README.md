@@ -1,4 +1,4 @@
 QAuth
 -----
 
-Free open source PHP authentication
+Free and open source PHP authentication built off of PHPass.
