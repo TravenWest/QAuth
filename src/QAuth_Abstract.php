@@ -6,9 +6,6 @@ abstract class QAuth_Abstract
         const DEFAULT_SALT_LENGTH = 32;
         
         
-        abstract public function setData($data);
-        
-        
         abstract public function authenticate($userId, $password);
         
         
@@ -70,9 +67,11 @@ abstract class QAuth_Abstract
 		if ($mixInternal)
 		{
 			$final = '';
+			
 			foreach (str_split($return, 16) AS $i => $part)
 			{
 				$internal = uniqid(mt_rand());
+				
 				if ($i % 2 == 0)
 				{
 					$final .= md5($part . $internal, true);
@@ -118,6 +117,6 @@ abstract class QAuth_Abstract
 	 */
 	public static function createDefault()
 	{
-		return self::create('QAuthCore12');
+		return self::create('QAuth_Core32');
 	}
 }
